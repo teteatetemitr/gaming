@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="generator" content="Responsive Site Designer 1.5.1419">
+<title>Your Title</title>
+<link rel="stylesheet" th:href="@{/css/coffeegrinder.min.css}">
+<link rel="stylesheet" th:href="@{/css/wireframe-theme.min.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<script type="text/javascript">
+function showAlternateEmail(){
+	document.getElementById("altEmail").style.display="block";
+}
+function hide(){
+	document.getElementById("altEmail").style.display="none";
+}
+function callApi(e){
+	alert(e);
+}
+</script>
+</head>
+
+<body onload="hide()">
+	<div class="row full-width-row header">
+		<header class="coffee-span-12">
+			<div class="container header-container">	
+        	<p class="paragraph welcome">Welcome<br><span th:text="${profile.userName}"></span></p>
+				<h1 class="page-heading">Footballing</h1>
+				<p class="paragraph tagline">
+					One place to play your favorite game<br>
+				</p>
+			</div>
+		</header>
+	</div>
+	<div class="row">
+		<div class="coffee-span-12 nav-column">
+			<a class="link-text nav-link" href="#">Account</a> 
+			<a class="link-text nav-link" href="#">Tournament</a> 
+			<a class="link-text nav-link" href="#">Statistics</a> 
+			<a class="link-text nav-link" href="#">Goals</a>
+			<a class="link-text nav-link" href="#">Players</a> 
+			<a class="link-text nav-link" href="#">News</a>
+		</div>
+	</div>
+	<main class="row">
+		<article
+			class="coffee-span-8 coffee-880-span-8 coffee-549-span-12 coffee-700-span-12">
+			<h8 class="h2.heading-3"><label>Username: &nbsp;&nbsp;<span th:text="${profile.userName}"></span></label></h8>
+			<p class="paragraph">
+				You can change your username, which impacts how you sign in.<br>
+				It also shows up as part of your profile URL (if you choose to share
+				it).
+			</p>
+			
+			<form method="post" th:action="@{/profile/update/userName}" th:object="${profile}" >
+			<div class="input-text">
+				<input id="uName" type="text" placeholder="Enter new userName" max=20  th:field="*{userNameChange}"/>
+			</div>
+			<div class="container button-container">
+			<button type="submit" class="button">Update</button>
+			</div>
+			<input type="hidden" th:field="*{idProfile}"/>
+			</form>
+			<hr>
+			<h8 class="h2.heading-3">Email</h8>
+			<p class="paragraph input">
+				We send account updates, billing and newsletters to the primary
+				email.<br> You can login with any verified email address so you
+				never lose access to your account.
+			</p>
+			<h8 class="h2.heading-3">Primary email: &nbsp;&nbsp;</h8><span th:text="${profile.primaryEmail}"></span>
+			<div class="container button-container">
+			<a class="link-button button-nav" href="javascript:showAlternateEmail()" title="Update"
+					target="_blank">Alternate email</a>
+			<div id="altEmail" class="container button-container">
+			<form method="post" th:action="@{/profile/update/altEmail}" th:object="${profile}" >
+			<input type="text" max=40 placeholder="Enter alternate email" th:field="*{alternateEmail}"/>
+			<div class="container button-container">
+			<button type="submit"  class="button">Update</button>
+			</div>	
+			</form>				
+			</div>
+			</div>
+			<hr>			
+			<form method="post" th:action="@{/profile/update/password}" th:object="${profile}" >
+			<h8 class="h2.heading-3">Password</h8>
+			<p class="paragraph">Current password</p>
+			<input type="password" max=20 th:field="*{password}"/>
+			<p class="paragraph input">New password</p>
+			<input type="password" max=20  th:field="*{alternatePassword}"/>
+			<p class="paragraph input">Confirm password</p>
+			<input type="password" max=20  th:field="*{confirmPassword}"/>
+			<div class="container button-container">
+			<button type="submit"  class="button">Update</button>
+			</div>
+			</form>
+			<hr>
+			<form method="post" th:action="@{/profile/update/name}" th:object="${profile}" >
+			<h8 class="h2.heading-3">Name</h8>
+			<p class="paragraph">First name</p>
+			<input type="text" max=20 th:field="${profile.firstName}" />
+			<p class="paragraph">Last name</p>
+			<input type="text" max=20 th:field="${profile.lastName}" />
+			<div class="container button-container">
+			<button type="submit"  class="button">Update</button>
+			</div>
+			</form>
+		</article>
+	<div class="coffee-span-4 coffee-549-span-12 coffee-700-span-12">
+		<h2 class="heading-1">Let's Football</h2>
+		<img align="right" th:src="@{/img/football.jpg}" />
+		<div class="rule">
+			<hr>
+		</div>
+	</div>
+
+
+
+	</main>
+	<div class="row full-width-row footer">
+		<div class="coffee-span-12">
+			<footer class="subgrid">
+				<div class="row">
+					<div class="coffee-span-3 hidden-column"></div>
+					<div class="coffee-span-9 coffee-880-span-12">
+						<a class="link-text footer-nav" href="#">Account</a> 
+						<a class="link-text footer-nav" href="#">Tournament</a> 
+						<a class="link-text footer-nav" href="#">Statistics</a> 
+						<a class="link-text footer-nav" href="#">Goals</a> 
+						<a class="link-text footer-nav" href="#">Players</a> 
+						<a class="link-text footer-nav" href="#">News</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="coffee-span-12">
+						<div class="rule rule-1">
+							<hr>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="coffee-span-3 hidden-column"></div>
+					<div class="coffee-span-9 coffee-880-span-12"></div>
+				</div>
+			</footer>
+		</div>
+	</div>
+</body>
+
+</html>
