@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="generator" content="Responsive Site Designer 1.5.1419">
+<title>Your Title</title>
+<link rel="stylesheet" th:href="@{/css/coffeegrinder.min.css}">
+<link rel="stylesheet" th:href="@{/css/wireframe-theme.min.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<style type="text/css">
+.bgimg {
+	/* background-image: url('img/football_pitch.jpg'); */
+	background-color: seagreen;
+	height: 400px; width: auto;
+	background-repeat: no-repeat;
+}
+</style>
+</head>
+
+<body>
+	<div class="row full-width-row header">
+		<header class="coffee-span-12">
+			<div class="container header-container">
+				<h1 class="page-heading">Footballing</h1>
+				<p class="paragraph tagline">
+					One place to play your favorite game<br>
+				</p>
+			</div>
+		</header>
+	</div>
+	<div class="row">
+		<div class="coffee-span-12 nav-column">
+			<a class="link-text nav-link" href="#">Home</a> 
+			<a class="link-text nav-link" href="#">Tournament</a> 
+			<a class="link-text nav-link" href="#">Statistics</a> 
+			<a class="link-text nav-link" href="#">Goals</a>
+			<a class="link-text nav-link" href="#">Players</a> 
+			<a class="link-text nav-link" th:href="@{profile/setting}">Account</a> 
+		</div>
+	</div>
+		<article class="coffee-span-8 coffee-880-span-8 coffee-549-span-12 coffee-700-span-12">
+					<div  class="bgimg">
+						<table><th>Header</th></table>
+						</div>
+
+		</article>
