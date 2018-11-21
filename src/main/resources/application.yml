@@ -7,6 +7,15 @@ spring:
     password: root
     url: jdbc:mysql://localhost:3306/gaming
     username: root
+    initialize:  false 
+---
+spring:
+  profiles: container
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    initialize: true 
   resources:
     chain:
       strategy:
@@ -17,3 +26,5 @@ spring:
     cache: false
     enabled: true
     prefix: classpath:/templates/
+    
+
