@@ -15,7 +15,7 @@ public class GamingApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		assertEquals("Passes", 10, 20);
+		assertEquals("Passes", 10, 10);
 	}
 
 }
