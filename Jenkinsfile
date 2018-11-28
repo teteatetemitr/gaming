@@ -2,7 +2,8 @@ pipeline{
     agent none
     stages{
         stage('Starting pipeline'){
-            agent any{triggers {
+            agent any
+            triggers {
                 cron('H */4 * * 1-5')
                 }
                 steps{
