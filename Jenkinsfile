@@ -17,6 +17,8 @@ pipeline{
             steps{
                 withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
                 sh 'mvn test'
+                cd '/var/jenkins_home/reports'
+                copy(file:"*.xml", tofile:"$WORKSPACE")
                 junit '/var/jenkins_home/reports/*.xml'
                 }
             }
