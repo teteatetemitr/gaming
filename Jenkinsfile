@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    tools {
-       maven '${env.MAVEN_HOME}'
-  }
     stages{
         stage('Checkout'){
             steps{
@@ -11,7 +8,9 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'mvn clean verify'
+                withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
+                sh 'mvn clean install'
+                }
             }
         }
         stage('Test'){
