@@ -21,7 +21,7 @@ pipeline{
             }
             post{
                 always{                    
-                  junit '/var/jenkins_home/workspace/target/surefire-reports/*.xml'
+                  junit allowEmptyResults: true, testResults:'/var/jenkins_home/workspace/target/surefire-reports/*.xml'
                 }
             }
         }
