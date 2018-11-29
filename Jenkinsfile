@@ -27,12 +27,14 @@ pipeline{
         }
         stage('analysis'){
             steps{
+                withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
                 sh "mvn sonar:sonar -Dsonar.host.url=${env.SONARQUBE_HOST}"
+                }
             }
         }
         stage('deploy'){
             steps{
-                sh 'make publish'
+                sh 'cp /var/jenkins_home/workspace/target/*.war /usr/local/tomcat/webapps/'
             }
         }
     }
