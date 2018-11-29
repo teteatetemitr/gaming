@@ -28,7 +28,7 @@ pipeline{
         stage('analysis'){
             steps{
                 withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
-                sh "mvn sonar:sonar -Dsonar.host.url=${env.SONARQUBE_HOST}"
+                sh "mvn sonar:sonar -Dsonar.host.url=http://my50335dns.eastus2.cloudapp.azure.com:9000"
                 }
             }
         }
