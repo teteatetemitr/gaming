@@ -18,11 +18,11 @@ pipeline{
                 withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
                 sh 'mvn test'
                 }
+            }
             post{
                 always{                    
                   junit 'target/surefire-reports/*.xml'
                 }
-            }    
             }
         }
         stage('analysis'){
