@@ -35,7 +35,7 @@ pipeline{
         stage('deploy'){
             steps{
                 withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
-                sh 'mvn deploy'
+                sh 'mvn deploy -DaltDeploymentRepository=internal.repo::default::file:/var/jenkins_home/workspace/myGamingApp_dev/target'
                 }
             }
         }
