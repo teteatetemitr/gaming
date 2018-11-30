@@ -32,10 +32,11 @@ pipeline{
                 }
             }
         }
+        /* 
         stage('deploy'){
             steps{
                 sh 'cp /var/jenkins_home/workspace/myGamingApp_dev/target/*.war /usr/local/tomcat/webapps/'
             }
-        }
+        } */
     }
 }
