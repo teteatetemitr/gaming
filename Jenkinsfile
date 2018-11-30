@@ -32,11 +32,12 @@ pipeline{
                 }
             }
         }
-        /* 
         stage('deploy'){
             steps{
-                sh 'cp /var/jenkins_home/workspace/myGamingApp_dev/target/*.war /usr/local/tomcat/webapps/'
+                withEnv(["PATH+MAVEN=${tool "apache-maven-3.6.0"}/bin"]){
+                sh 'mvn deploy'
+                }
             }
-        } */
+        }
     }
 }
