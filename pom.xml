@@ -6,7 +6,7 @@
 	<groupId>com.gaming.football</groupId>
 	<artifactId>gaming</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>gaming</name>
 	<description>Demo project for Spring Boot</description>	
